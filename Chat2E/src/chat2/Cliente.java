@@ -4,11 +4,11 @@
  */
 package chat2;
 
-import java.io.*;
-import java.net.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.*;
+import java.net.*;
 
 public class Cliente extends JFrame implements ActionListener {
 
@@ -135,8 +135,8 @@ public class Cliente extends JFrame implements ActionListener {
 
                 salida.writeUTF("__FILE__:" + destinatario + ":" + archivo.getName() + ":" + buffer.length);
                 salida.write(buffer);
+                salida.flush();
             } else if (texto.startsWith("@")) {
-                // Ejemplo: @Carlos Hola, ¿cómo estás?
                 int espacio = texto.indexOf(" ");
                 if (espacio != -1) {
                     String destinatario = texto.substring(1, espacio);
